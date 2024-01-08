@@ -1,6 +1,6 @@
 /**
  * @author Jaime Fernández Calvo
- * @github https://github.com/DiegusNueva/objectForm
+ * @github https://github.com/jaimecamocha/objectForm.git
  */
 
 // Método 1: acceder a los formularios
