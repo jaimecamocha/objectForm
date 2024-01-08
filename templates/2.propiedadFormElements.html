@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Propiedad forms.elements</title>
+</head>
+
+<body>
+    <form id="formulario" action="" method="">
+
+        <label for="nombre">Escriba su nombre</label><br>
+        <input type="text" id="nombre" name="nombre"><br>
+
+        <label for="apellidos">Escriba sus apellidos</label><br>
+        <input type="text" id="apellidos" name="apellidos"><br>
+
+        <label for="sexo">Escriba su sexo: </label><br>
+        <input type="radio" id="hombre" name="sexo" value="hombre">
+
+        <label for="hombre">Hombre</label>
+        <input type="radio" id="mujer" name="sexo" value="mujer">
+        <label for="mujer">Mujer</label><br><br>
+
+        <button type="submit" id="enviar" value="">Enviar</button>
+
+    </form>
+
+    <script>
+        // Guardamos la referencia del formulario en una variable.
+        const miFormulario = document.getElementById("formulario");
+
+        // Si no existe ese formulario devuelve ''false''.
+        if (!miFormulario) {
+            console.log('No existe ningún formulario');
+        } else {
+            // Agregamos un escuchador de eventos al formulario para el evento 'submit'
+            miFormulario.addEventListener("submit", function (event) {
+                // Prevenir que el formulario se envíe
+                event.preventDefault();
+
+                // Iterar a través de los elementos del formulario
+                for (let i = 0; i < miFormulario.elements.length; i++) {
+                    let tipoElemento = miFormulario.elements[i].type;
+                    let idElemento = miFormulario.elements[i].id;
+                    let valorElemento = miFormulario.elements[i].value;
+                    console.log(`${idElemento} : ${tipoElemento} : ${valorElemento}`);
+                }
+            });
+        }
+    </script>
+    
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Árbol DOM formulario típico</title>
+</head>
+
+<body>
+    <form action="buscar.php" name="elFormulario" id="miFormulario" method="post">
+        <p>
+            <label for="busqueda">Buscar por:</label>
+            <input id="busqueda" name="busqueda" type="text" value="PRUEBA" />
+            <input id="submit" type="submit" value="Buscar" />
+        </p>
+    </form>
+
+    <script>
+        function printDOM(node, prefix) {
+            console.log(`${prefix} ${node.nodeName}  :  ${node.nodeType}  ->  ${node.nodeValue}`);
+            for (let i = 0; i < node.childNodes.length; i++) {
+                printDOM(node.childNodes[i], `${prefix} \t`); // tabulación para mejorar la indentación
+            }
+        }
+        printDOM(document.getElementById("miFormulario"), "");
+
+        //Salida:
+        //     FORM  :  1  ->  null
+        //  #text  :  3  ->
+        //  P  :  1  ->  null
+        //  	 #text  :  3  ->
+        //  	 LABEL  :  1  ->  null
+        //  	 	 #text  :  3  ->  Buscar por:
+        //  	 #text  :  3  ->
+        //  	 INPUT  :  1  ->  null
+        //  	 #text  :  3  ->
+        //  	 INPUT  :  1  ->  null
+        //  	 #text  :  3  ->
+        //  #text  :  3  ->  
+    </script>
+</body>
+
+</html>
